@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>웨밍워닝 날씨 알리미</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: '맑은 고딕', sans-serif;
+      background-color: #ffffff;
+    }
+
+    .header {
+      text-align: center;
+      padding: 10px;
+      border-bottom: 2px solid black;
+      font-size: 18px;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .main {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+    }
+
+    .box {
+      border: 2px solid black;
+      padding: 15px;
+      width: 30%;
+      box-sizing: border-box;
+    }
+
+    .box h3 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .today-weather {
+      text-align: center;
+    }
+
+    .forecast-icons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .icon {
+      font-size: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: 2px solid black;
+      background-color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #eee;
+    }
+
+    .subtext {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 날짜와 시간 -->
+  <div class="header" id="datetime">
+    날짜: 2025년 4월 17일  |  현재 시간: 오후 1시 30분 (13:30)
+  </div>
+
+  <!-- 제목 -->
+  <div class="title">웨밍워닝 날씨 알리미</div>
+
+  <!-- 메인 영역 3분할 -->
+  <div class="main">
+    <!-- 좌측: 지구 온난화 지수 -->
+    <div class="box">
+      <h3>🌍 지구 온난화 지수</h3>
+      <p>이산화탄소: 342ppm</p>
+      <p>지구 온난화: +1.0℃</p>
+      <p>해수면 상승: 22cm</p>
+      <p>극 해빙 면적: 410</p>
+      <button>지금 해 포기</button>
+    </div>
+
+    <!-- 중앙: 오늘의 날씨 -->
+    <div class="box">
+      <h3>☁ 오늘의 날씨</h3>
+      <div class="today-weather">
+        <div style="font-size: 26px;">23℃</div>
+        <div>구름 조금</div>
+        <div class="subtext">미세먼지: 보통</div>
+
+        <div class="forecast-icons">
+          <div class="icon">🌦</div>
+          <div class="icon">🌤</div>
+          <div class="icon">☀</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 우측: 내일의 날씨 -->
+    <div class="box">
+      <h3>🌤 내일의 날씨</h3>
+      <div style="text-align: center;">
+        <div style="font-size: 24px;">19℃</div>
+        <div>맑음</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 하단 버튼 -->
+  <div class="buttons">
+    <button>웨밍워닝 더보기</button>
+    <button>지구 마당 둘러보기</button>
+  </div>
+
+</body>
+</html>
