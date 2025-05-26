@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>날씨 메인 화면</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; height: 100vh; display: flex; flex-direction: column; }
+
+    header, footer {
+      height: 10%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      background-color: #f0f0f0;
+    }
+
+    main {
+      height: 80%;
+      display: flex;
+    }
+
+    .left-panel, .center-panel, .right-panel {
+      height: 100%;
+      padding: 10px;
+    }
+
+    .left-panel {
+      width: 20%;
+      background-color: #e6f7e6;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .left-panel:hover {
+      width: 30%;
+      background-color: #c8f0c8;
+    }
+
+    .center-panel {
+      width: 60%;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .weather-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .weather-row img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .time-weather {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      text-align: center;
+    }
+
+    .right-panel {
+      width: 20%;
+      background-color: #e6f0ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    button {
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- 오늘 날짜와 시간 표시 영역 -->
+  <header>
+    <div id="currentDateTime">날짜와 시간 로딩 중...</div>
+  </header>
+
+  <!-- 중간 콘텐츠 영역 -->
+  <main>
+    <!-- 왼쪽: 지구 숨 지수 -->
+    <div class="left-panel" onclick="location.href='숨지수페이지.html';">
+      <h3>지구 숨 지수</h3>
+      <img src="image1.png" alt="지구 숨 지수" style="width:100%;">
+    </div>
+
+    <!-- 가운데: 오늘의 날씨 -->
+    <div class="center-panel">
+      <h2>오늘의 날씨</h2>
+      <div class="weather-row">
+        <img src="image2.png" alt="오늘의 날씨 아이콘">
+        <div>
+          <!-- 현재 날씨 설명용 텍스트 5줄 -->
+          <p>위치: 서울</p>
+          <p>기온: 25℃</p>
+          <p>습도: 60%</p>
+          <p>풍속: 5m/s</p>
+          <p>하늘: 맑음</p>
+        </div>
+      </div>
+
+      <!-- 시간대별 날씨 예측 -->
+      <div class="time-weather">
+        <div>
+          <p id="time1">--시</p>
+          <img src="image3_1.png" alt="2시간 후">
+        </div>
+        <div>
+          <p id="time2">--시</p>
+          <img src="image3_2.png" alt="4시간 후">
+        </div>
+        <div>
+          <p id="time3">--시</p>
+          <img src="image3_3.png" alt="6시간 후">
+        </div>
+        <div>
+          <p id="time4">--시</p>
+          <img src="image3_4.png" alt="8시간 후">
+        </div>
+      </div>
+    </div>
+
+    <!-- 오른쪽: 내일 날씨 -->
+    <div class="right-panel">
+      <h3 id="tomorrowDate">내일</h3>
+      <img src="image4.png" alt="내일의 날씨 아이콘" style="width:100px; height:100px;">
+      <!-- 날씨 텍스트 4줄 -->
+      <p>기온: 23℃</p>
+      <p>습도: 55%</p>
+      <p>강수확률: 10%</p>
+      <p>풍속: 4m/s</p>
+      <button>이번주 날씨 보기</button>
+    </div>
+  </main>
+
+  <!-- 하단 버튼 -->
+  <footer>
+    <button>워밍워닝</button>
+    <button>지구마당 둘러보기</button>
+  </footer>
+
+  <script>
+    // 현재 날짜와 시간 표시
+    function updateTime() {
+      const now = new Date();
+      const currentDateTime = now.toLocaleString('ko-KR');
+      document.getElementById('currentDateTime').textContent = currentDateTime;
+
+      const hour = now.getHours();
+      document.getElementById('time1').textContent = ((hour + 2) % 24) + '시';
+      document.getElementById('time2').textContent = ((hour + 4) % 24) + '시';
+      document.getElementById('time3').textContent = ((hour + 6) % 24) + '시';
+      document.getElementById('time4').textContent = ((hour + 8) % 24) + '시';
+
+      const tomorrow = new Date(now);
+      tomorrow.setDate(now.getDate() + 1);
+      const tomorrowStr = tomorrow.getMonth() + 1 + '월 ' + tomorrow.getDate() + '일';
+      document.getElementById('tomorrowDate').textContent = '내일 (' + tomorrowStr + ')';
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000); // 1초마다 갱신
+  </script>
+</body>
+</html>
