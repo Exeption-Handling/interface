@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이번주 날씨</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #e6f7ff, #ffffff);
+      padding: 20px;
+      font-size: 110%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2a4d69;
+      margin-bottom: 20px;
+    }
+
+    .week-weather {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .day-card {
+      background-color: #ffffff;
+      border: 2px solid #b3e5fc;
+      border-radius: 10px;
+      padding: 15px;
+      width: 120px;
+      text-align: center;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .day-card h3 {
+      color: #0288d1;
+      margin-bottom: 5px;
+    }
+
+    .day-card small {
+      font-size: 0.8em;
+      color: #888;
+    }
+
+    .day-card img {
+      width: 60px;
+      height: 60px;
+      margin: 10px 0;
+    }
+
+    .day-card p {
+      margin: 4px 0;
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+<body>
+  <h1>이번주 날씨</h1>
+  <div class="week-weather">
+    <div class="day-card">
+      <h3>월요일</h3>
+      <small>5월 27일</small>
+      <img src="tenki_mark01_hare.png" alt="월요일 날씨">
+      <p>기온: 23℃</p>
+      <p>습도: 60%</p>
+      <p>강수확률: 10%</p>
+    </div>
+    <div class="day-card">
+      <h3>화요일</h3>
+      <small>5월 28일</small>
+      <img src="tenki_mark01_hare.png" alt="화요일 날씨">
+      <p>기온: 24℃</p>
+      <p>습도: 55%</p>
+      <p>강수확률: 20%</p>
+    </div>
+    <div class="day-card">
+      <h3>수요일</h3>
+      <small>5월 29일</small>
+      <img src="tenki_mark01_hare.png" alt="수요일 날씨">
+      <p>기온: 22℃</p>
+      <p>습도: 58%</p>
+      <p>강수확률: 40%</p>
+    </div>
+    <div class="day-card">
+      <h3>목요일</h3>
+      <small>5월 30일</small>
+      <img src="tenki_mark01_hare.png" alt="목요일 날씨">
+      <p>기온: 26℃</p>
+      <p>습도: 50%</p>
+      <p>강수확률: 5%</p>
+    </div>
+    <div class="day-card">
+      <h3>금요일</h3>
+      <small>5월 31일</small>
+      <img src="tenki_mark01_hare.png" alt="금요일 날씨">
+      <p>기온: 25℃</p>
+      <p>습도: 52%</p>
+      <p>강수확률: 15%</p>
+    </div>
+    <div class="day-card">
+      <h3>토요일</h3>
+      <small>6월 1일</small>
+      <img src="tenki_mark01_hare.png" alt="토요일 날씨">
+      <p>기온: 26℃</p>
+      <p>습도: 57%</p>
+      <p>강수확률: 30%</p>
+    </div>
+    <div class="day-card">
+      <h3>일요일</h3>
+      <small>6월 2일</small>
+      <img src="tenki_mark01_hare.png" alt="일요일 날씨">
+      <p>기온: 24℃</p>
+      <p>습도: 60%</p>
+      <p>강수확률: 20%</p>
+    </div>
+  </div>
+</body>
+</html>
