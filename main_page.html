@@ -6,7 +6,14 @@
   <title>날씨 메인 화면</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; height: 100vh; display: flex; flex-direction: column; }
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(to bottom, #e6f7ff, #ffffff);
+      font-size: 110%;
+    }
 
     header, footer {
       height: 10%;
@@ -14,29 +21,61 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 20px;
-      background-color: #f0f0f0;
+      background-color: #d5f0fa;
+      color: #2a4d69;
+      font-weight: bold;
+      font-size: 1.32em;
+      position: relative;
+    }
+
+    .login-form {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      display: flex;
+      gap: 5px;
+      transform: scale(0.81);
+    }
+
+    .login-form input[type="text"], .login-form input[type="password"] {
+      padding: 5px;
+      font-size: 1em;
+    }
+
+    .login-form button {
+      padding: 5px 10px;
+      background-color: #0288d1;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
     }
 
     main {
       height: 80%;
       display: flex;
+      background-color: #f0fbff;
+      border-top: 2px solid #b3e0ff;
+      border-bottom: 2px solid #b3e0ff;
     }
 
     .left-panel, .center-panel, .right-panel {
       height: 100%;
       padding: 10px;
+      transition: all 0.3s ease;
     }
 
     .left-panel {
       width: 20%;
-      background-color: #e6f7e6;
-      transition: all 0.3s ease;
+      background-color: #e1f5fe;
       cursor: pointer;
+      border-right: 1px solid #b3e5fc;
     }
 
     .left-panel:hover {
       width: 30%;
-      background-color: #c8f0c8;
+      background-color: #b3e5fc;
     }
 
     .center-panel {
@@ -45,6 +84,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      border-left: 1px solid #b3e5fc;
+      border-right: 1px solid #b3e5fc;
+      padding: 20px;
     }
 
     .weather-row {
@@ -52,11 +94,21 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 10px;
     }
 
     .weather-row img {
       width: 100px;
       height: 100px;
+      margin-right: 20px;
+    }
+
+    .weather-row p {
+      margin: 3px 0;
+      font-size: 1.1em;
+      color: #333;
+      border-bottom: 1px dashed #87ceeb; /* 하늘색 밑줄 */
     }
 
     .time-weather {
@@ -64,44 +116,107 @@
       justify-content: space-around;
       width: 100%;
       text-align: center;
+      margin-top: 10px;
+    }
+
+    .time-weather p {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #2a4d69;
     }
 
     .right-panel {
       width: 20%;
-      background-color: #e6f0ff;
+      background-color: #e0f7fa;
       display: flex;
       flex-direction: column;
       align-items: center;
+      border-left: 1px solid #b2ebf2;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .right-panel:hover {
+      width: 30%;
+      background-color: #b2ebf2;
+    }
+
+    .right-panel h3 {
+      color: #00796b;
+      font-size: 1.1em;
+    }
+
+    .right-panel p {
+      font-size: 1.1em;
     }
 
     button {
-      padding: 10px;
-      margin: 5px;
+      padding: 10px 15px;
+      margin: 8px;
+      background-color: #4fc3f7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
       cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      font-size: 1em;
+    }
+
+    .green-btn {
+      background-color: #66bb6a;
+    }
+
+    .green-btn:hover {
+      color: transparent;
+    }
+
+    .green-btn:hover::before {
+      content: "🌱";
+      position: absolute;
+      font-size: 24px;
+      color: white;
+    }
+
+    .sun-btn:hover {
+      color: transparent;
+    }
+
+    .sun-btn:hover::before {
+      content: "☀️";
+      position: absolute;
+      font-size: 24px;
+      color: white;
+    }
+
+    button:hover:not(.green-btn):not(.sun-btn) {
+      background-color: #0288d1;
     }
   </style>
 </head>
 <body>
-  <!-- 오늘 날짜와 시간 표시 영역 -->
   <header>
     <div id="currentDateTime">날짜와 시간 로딩 중...</div>
+    <form class="login-form">
+      <input type="text" placeholder="ID">
+      <input type="password" placeholder="Password">
+      <button type="submit">로그인</button>
+    </form>
   </header>
-
-  <!-- 중간 콘텐츠 영역 -->
   <main>
-    <!-- 왼쪽: 지구 숨 지수 -->
     <div class="left-panel" onclick="location.href='숨지수페이지.html';">
       <h3>지구 숨 지수</h3>
-      <img src="image1.png" alt="지구 숨 지수" style="width:100%;">
+      <img src="tenki_mark01_hare.png" alt="지구 숨 지수" style="width:100%;">
     </div>
-
-    <!-- 가운데: 오늘의 날씨 -->
     <div class="center-panel">
       <h2>오늘의 날씨</h2>
       <div class="weather-row">
-        <img src="image2.png" alt="오늘의 날씨 아이콘">
+        <img src="tenki_mark01_hare.png" alt="오늘의 날씨 아이콘" style="width:200px; height:200px;">
         <div>
-          <!-- 현재 날씨 설명용 텍스트 5줄 -->
           <p>위치: 서울</p>
           <p>기온: 25℃</p>
           <p>습도: 60%</p>
@@ -109,49 +224,28 @@
           <p>하늘: 맑음</p>
         </div>
       </div>
-
-      <!-- 시간대별 날씨 예측 -->
       <div class="time-weather">
-        <div>
-          <p id="time1">--시</p>
-          <img src="image3_1.png" alt="2시간 후">
-        </div>
-        <div>
-          <p id="time2">--시</p>
-          <img src="image3_2.png" alt="4시간 후">
-        </div>
-        <div>
-          <p id="time3">--시</p>
-          <img src="image3_3.png" alt="6시간 후">
-        </div>
-        <div>
-          <p id="time4">--시</p>
-          <img src="image3_4.png" alt="8시간 후">
-        </div>
+        <div><p id="time1">--시</p><img src="tenki_mark01_hare.png" alt="2시간 후" style="width:80px; height:80px;"></div>
+        <div><p id="time2">--시</p><img src="tenki_mark01_hare.png" alt="4시간 후" style="width:80px; height:80px;"></div>
+        <div><p id="time3">--시</p><img src="tenki_mark01_hare.png" alt="6시간 후" style="width:80px; height:80px;"></div>
+        <div><p id="time4">--시</p><img src="tenki_mark01_hare.png" alt="8시간 후" style="width:80px; height:80px;"></div>
       </div>
     </div>
-
-    <!-- 오른쪽: 내일 날씨 -->
-    <div class="right-panel">
+    <div class="right-panel" onclick="location.href='이번주날씨.html';">
       <h3 id="tomorrowDate">내일</h3>
-      <img src="image4.png" alt="내일의 날씨 아이콘" style="width:100px; height:100px;">
-      <!-- 날씨 텍스트 4줄 -->
+      <img src="tenki_mark01_hare.png" alt="내일의 날씨 아이콘" style="width:100px; height:100px;">
       <p>기온: 23℃</p>
       <p>습도: 55%</p>
       <p>강수확률: 10%</p>
       <p>풍속: 4m/s</p>
-      <button>이번주 날씨 보기</button>
+      <button class="sun-btn">이번주 날씨 보기</button>
     </div>
   </main>
-
-  <!-- 하단 버튼 -->
   <footer>
-    <button>워밍워닝</button>
-    <button>지구마당 둘러보기</button>
+    <button class="green-btn">워밍워닝이란?</button>
+    <button class="green-btn">지구마당 둘러보기</button>
   </footer>
-
   <script>
-    // 현재 날짜와 시간 표시
     function updateTime() {
       const now = new Date();
       const currentDateTime = now.toLocaleString('ko-KR');
@@ -170,7 +264,7 @@
     }
 
     updateTime();
-    setInterval(updateTime, 1000); // 1초마다 갱신
+    setInterval(updateTime, 1000);
   </script>
 </body>
 </html>
